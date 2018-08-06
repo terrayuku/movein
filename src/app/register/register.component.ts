@@ -11,19 +11,19 @@ import {PreRegistrationComponent} from '../pre-registration/pre-registration.com
 export class RegisterComponent implements OnInit {
   dialogResult: string;
 
-  constructor(public dialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(PreRegistrationComponent, {
-      width: '600px',
-      data: 'This text is passed into the dialog!'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog closed: ${result}`);
-      this.dialogResult = result;
-    });
-  }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(PreRegistrationComponent, {
+  //     width: '600px',
+  //     data: 'This text is passed into the dialog!'
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog closed: ${result}`);
+  //     this.dialogResult = result;
+  //   });
+  // }
 }

@@ -9,8 +9,8 @@ import { Counter } from '../Counter';
 export class UnemployedCounterComponent implements OnInit {
 
   count: Counter = {
-  unemployedCount: 1000000000
-};
+    unemployedCount: 1000000000
+  };
   constructor() { }
 
   ngOnInit() {

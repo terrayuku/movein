@@ -8,15 +8,15 @@ import { MatDialogRef} from '@angular/material';
   styleUrls: ['./pre-registration.component.css']
 })
 export class PreRegistrationComponent implements OnInit {
-
-  constructor(public thisDialogRef: MatDialogRef<PreRegistrationComponent>, @Inject(MAT_DIALOG_DATA) public data: string) { }
+  // public thisDialogRef: MatDialogRef<PreRegistrationComponent>, @Inject(MAT_DIALOG_DATA) public data: string
+  constructor() { }
   ngOnInit() {
   }
-  onCloseConfirm() {
-    this.thisDialogRef.close('Confirm');
-  }
-  onCloseCancel() {
-    this.thisDialogRef.close('Cancel');
-  }
+  // onCloseConfirm() {
+  //   this.thisDialogRef.close('Confirm');
+  // }
+  // onCloseCancel() {
+  //   this.thisDialogRef.close('Cancel');
+  // }
 
 }

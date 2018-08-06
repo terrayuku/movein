@@ -1,0 +1,14 @@
+.unemployed-count {
+  font-size: 5em;
+  text-align: center;
+}
+
+.unemployed-count .unemployed-count-content {
+  font-size: 0.5em;
+}
+
+p {
+  padding-top: 0em;
+  display: block;
+}
+

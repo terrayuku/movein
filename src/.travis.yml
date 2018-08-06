@@ -5,6 +5,8 @@ node_js:
 branches:
   only:
     - master
+  except:
+    - gh-pages
 
 addons:
   chrome: stable

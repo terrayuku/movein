@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 
 import {PreRegistrationComponent} from '../pre-registration/pre-registration.component';
+import {register} from "ts-node";
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,11 @@ import {PreRegistrationComponent} from '../pre-registration/pre-registration.com
 })
 export class RegisterComponent implements OnInit {
   dialogResult: string;
+  register: string;
 
-  constructor() { }
+  constructor() {
+    this.register = 'REGISTER';
+  }
 
   ngOnInit() {
   }

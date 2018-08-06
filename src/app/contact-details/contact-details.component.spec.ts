@@ -22,4 +22,13 @@ describe('ContactDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should have email', () => {
+    const contactComponent = fixture.debugElement.componentInstance;
+    expect(contactComponent.email).toEqual('support@movein.com');
+  });
+  it('should have message', () => {
+    const contactComponent = fixture.debugElement.componentInstance;
+    const message = 'You can contact our support team for further information about the MOVEIN platform.';
+    expect(contactComponent.message).toEqual(message);
+  });
 });

@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-details.component.css']
 })
 export class ContactDetailsComponent implements OnInit {
-
-  constructor() { }
+  email: string;
+  message: string;
+  constructor() {
+    this.message = 'You can contact our support team for further information about the MOVEIN platform.';
+    this.email = 'support@movein.com';
+  }
 
   ngOnInit() {
   }

@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material';
-
-import {PreRegistrationComponent} from '../pre-registration/pre-registration.component';
-import {register} from "ts-node";
 
 @Component({
   selector: 'app-register',

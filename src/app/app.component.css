@@ -1,16 +1,14 @@
 /* Add a black background color to the top navigation */
-.topnav {
+.movein-nav {
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.movein-nav a {
   transition: color 0.2s;
   display: inline-block;
-  height: 60px;
-  line-height: 60px;
   font-size: 16px;
-  padding: 0 16px;
+  padding: 15px 32px;
   opacity: 1;
   text-decoration: none;
   font-weight: 500;
@@ -18,9 +16,9 @@
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+.movein-nav a:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 /* Add an active class to highlight the current page */
@@ -30,10 +28,6 @@
 }
 
 /* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
+.movein-nav .icon {
   display: none;
-}
-
-.register {
-  float: right;
 }

@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import {UnemployedCounterComponent} from './unemployed-counter/unemployed-counter.component';
 import {RegisterComponent} from './register/register.component';
@@ -16,6 +17,7 @@ describe('AppComponent', () => {
         MoveinComponent,
         ContactDetailsComponent
       ],
+      schemas: [ NO_ERRORS_SCHEMA ],
     }).compileComponents();
   }));
   it('should create the app', async(() => {

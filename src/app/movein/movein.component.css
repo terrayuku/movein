@@ -1,0 +1,14 @@
+.content {
+  color: black;
+  padding-left: 16em;
+  padding-right: 16em;
+  /*width: 100%;*/
+}
+section {
+  padding-top: inherit;
+  /*width: 50%;*/
+}
+
+.sec-right {
+  padding-left: 20px;
+}

@@ -1,6 +1,8 @@
 .unemployed-count {
   font-size: 5em;
   text-align: center;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .unemployed-count .unemployed-count-content {

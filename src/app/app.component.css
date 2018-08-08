@@ -2,6 +2,7 @@
 .movein-nav {
   overflow: hidden;
   background-image: linear-gradient(-62deg,#283E8C 0,#232240 86%);
+  height: 20em;
 }
 
 /* Style the links inside the navigation bar */
@@ -38,6 +39,8 @@
 }
 
 .content {
+  padding-left: 16em;
+  padding-right: 16em;
 }
 
 .contact {

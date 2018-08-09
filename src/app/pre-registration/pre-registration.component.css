@@ -73,8 +73,5 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
 }
 p {
   padding: 10px;
-}
 
-.mat-grid-tile {
-  padding-top: 0;
 }

@@ -1,15 +1,32 @@
-<!--<div>-->
-  <!--<h2 mat-dialog-title>MY DIALOG</h2>-->
-  <!--<hr>-->
-  <!--<mat-dialog-content>-->
-    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam maxime cum dolorem officiis assumenda rem alias, omnis nobis nam. Ratione soluta libero architecto cupiditate at fugit consectetur sit dignissimos vitae.-->
-    <!--<br>-->
-    <!--<br>-->
-    <!--<strong>{{data}}</strong>-->
-  <!--</mat-dialog-content>-->
-  <!--<hr>-->
-  <!--<mat-dialog-actions>-->
-    <!--<button md-raised-button (click)="onCloseConfirm()">CONFIRM</button>&nbsp;-->
-    <!--<button md-raised-button (click)="onCloseCancel()">CANCEL</button>-->
-  <!--</mat-dialog-actions>-->
-<!--</div>-->
+<div class="rg-container">
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <mat-card class="register-container">
+        <mat-card-title class="card-title title">Register</mat-card-title>
+        <mat-card-subtitle>Build a creative personal profile</mat-card-subtitle>
+        <hr />
+        <mat-card-content>
+          <p>
+            <input type="text" class="inputFiled" placeholder="First Name"/>
+            <input type="text" class="inputFiled" placeholder="Last Name" />
+          </p>
+          <p>
+            <input type="email" placeholder="Emaile"/>
+            <input type="tel" placeholder="Cell Phone Number" />
+          </p>
+          <p>
+            <input type="password" placeholder="Password"/>
+            <input type="password" placeholder="Confirm Password" />
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="action">
+          <button mat-flat-button color="basic" class="cancel" routerLink="/">Cancel</button>
+          <button mat-stroked-button color="primary" class="signup" routerLink="/profile">Sign Up</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

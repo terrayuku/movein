@@ -1,0 +1,66 @@
+.register-container {
+  width: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  padding-top: 0px;
+  min-height: auto;
+  border-radius: 5px;
+  flex: 0 0 auto;
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+.title {
+  padding-top: 1.5em;
+}
+.cancel {
+  margin-left: -7em;
+  text-align: left;
+  padding: 0em;
+}
+
+.signup {
+  background-color: #4CAF50;
+  border-radius: 4px;
+  color: white;
+  margin-left: 11em;
+
+}
+
+.action {
+  margin-left: 10em;
+}
+
+.rg-container {
+  padding-left: 25em;
+  padding-right: 25em;
+}
+
+input[type=text], input[type=email], input[type=tel], input[type=password] {
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  padding: 6px 10px;
+  height: 40px;
+  border: 1px solid #e4ebef;
+  border-radius: 4px;
+  background-color: #ffffff;
+  vertical-align: middle;
+  line-height: normal;
+  max-width: 100%;
+  margin-left: 52px ;
+  font-size: 14px;
+  color: #7c7c80;
+}
+p {
+  padding: 10px;
+}

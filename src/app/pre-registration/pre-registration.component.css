@@ -1,11 +1,11 @@
 .register-container {
   width: auto;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px;
   margin-top: 0px;
   margin-bottom: 30px;
   padding-top: 0px;
   min-height: auto;
-  border-radius: 5px;
+  border-radius: 8px;
   flex: 0 0 auto;
   display: block;
   -webkit-margin-before: 1em;
@@ -15,7 +15,12 @@
 }
 
 .title {
-  padding-top: 1.5em;
+  padding-top: 2em;
+  padding-left: 12em;
+}
+
+.sub-title {
+  padding-left: 10em;
 }
 .cancel {
   margin-left: -7em;
@@ -33,6 +38,11 @@
 
 .action {
   margin-left: 10em;
+  margin-bottom: 2px !important;
+}
+
+.tile {
+  padding-top: 25em !important;
 }
 
 .rg-container {
@@ -63,4 +73,8 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
 }
 p {
   padding: 10px;
+}
+
+.mat-grid-tile {
+  padding-top: 0;
 }

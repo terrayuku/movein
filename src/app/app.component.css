@@ -21,12 +21,6 @@
 
 }
 
-/* Change the color of links on hover */
-.movein-nav a:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
 /* Add an active class to highlight the current page */
 .active {
   background-color: #4CAF50;
@@ -43,12 +37,3 @@
   padding-right: 16em;
 }
 
-.contact {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: black;
-  text-align: center;
-  font-size: 16px;
-}

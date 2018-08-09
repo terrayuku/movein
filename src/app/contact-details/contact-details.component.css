@@ -1,6 +1,16 @@
-.info {
+.contact {
   font-family: ProximanovaThin,sans-serif;
   color: #777;
   font-size: 12px;
   letter-spacing: .5px;
+  width: 100%;
+  text-align: center;
+  padding-top: 2em;
+  padding-left: 10em;
+  padding-right: 16em;
+}
+
+footer .footer-bottom {
+  border-top: 1px solid #e4ebef;
+  padding-top: 24px;
 }

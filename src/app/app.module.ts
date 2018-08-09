@@ -13,6 +13,7 @@ import { MoveinComponent } from './movein/movein.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { RegisterComponent } from './register/register.component';
 import { PreRegistrationComponent } from './pre-registration/pre-registration.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PreRegistrationComponent } from './pre-registration/pre-registration.co
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

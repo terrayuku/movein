@@ -14,16 +14,8 @@
   -webkit-margin-end: 0px;
 }
 
-.title {
-  padding-top: 2em;
-  padding-left: 12em;
-}
-
-.sub-title {
-  padding-left: 10em;
-}
 .cancel {
-  margin-left: -7em;
+  margin-left: -9em;
   text-align: left;
   padding: 0em;
 }
@@ -32,7 +24,7 @@
   background-color: #4CAF50;
   border-radius: 4px;
   color: white;
-  margin-left: 11em;
+  margin-left: 9em;
 
 }
 
@@ -50,27 +42,6 @@
   padding-right: 25em;
 }
 
-input[type=text], input[type=email], input[type=tel], input[type=password] {
-  -webkit-transition: border-color 0.2s;
-  -moz-transition: border-color 0.2s;
-  transition: border-color 0.2s;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  padding: 6px 10px;
-  height: 40px;
-  border: 1px solid #e4ebef;
-  border-radius: 4px;
-  background-color: #ffffff;
-  vertical-align: middle;
-  line-height: normal;
-  max-width: 100%;
-  margin-left: 52px ;
-  font-size: 14px;
-  color: #7c7c80;
-}
 p {
   padding: 10px;
 

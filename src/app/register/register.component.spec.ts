@@ -27,4 +27,8 @@ describe('RegisterComponent', () => {
     const register = fixture.debugElement.componentInstance;
     expect(register.register).toEqual('REGISTER');
   });
+  it('should have a button sigin', () => {
+    const register = fixture.debugElement.componentInstance;
+    expect(register.signin).toEqual('SIGN IN');
+  });
 });

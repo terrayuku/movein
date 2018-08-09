@@ -1,0 +1,26 @@
+.action {
+  margin-left: 10em;
+  margin-bottom: 2px !important;
+}
+
+.title {
+  padding-top: 0 !important;
+}
+
+input[type=email], input[type=password] {
+  margin-top: 11px;
+}
+
+.cancel {
+  margin-left: -10em;
+  text-align: left;
+  padding: 0em;
+}
+
+.signin {
+  background-color: #4CAF50;
+  border-radius: 4px;
+  color: white;
+  margin-left: 9em;
+
+}

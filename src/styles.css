@@ -25,7 +25,7 @@ body {
   font-weight: 500;
 }
 
-input[type=text], input[type=email], input[type=tel], input[type=password] {
+input[type=text], input[type=email], input[type=tel], input[type=password], textarea {
   -webkit-transition: border-color 0.2s;
   -moz-transition: border-color 0.2s;
   transition: border-color 0.2s;
@@ -45,4 +45,9 @@ input[type=text], input[type=email], input[type=tel], input[type=password] {
   margin-left: 20px ;
   font-size: 14px;
   color: #7c7c80;
+}
+
+.rg-container {
+  padding-left: 25em;
+  padding-right: 25em;
 }

@@ -1,0 +1,28 @@
+.skills {
+  left: 0px;
+  width: auto;
+  margin-top: 0px;
+  padding-top: 8px !important;
+}
+
+.save {
+  background-color: #4CAF50;
+  border-radius: 4px;
+  color: white;
+  margin-left: 25em !important;
+  margin-bottom: 4px !important;
+}
+
+input[type=text] {
+  padding-left: 10px !important;
+}
+
+.next {
+  padding-top: 4px !important;
+}
+
+textarea {
+  margin: 0px 0px 0px 4px;
+  width: 397px;
+  height: 180px;
+}

@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { PreRegistrationComponent } from './pre-registration/pre-registration.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SignupComponent } from './signup/signup.component';
     ContactDetailsComponent,
     RegisterComponent,
     PreRegistrationComponent,
-    SignupComponent
+    SignupComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,

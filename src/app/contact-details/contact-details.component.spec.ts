@@ -24,7 +24,7 @@ describe('ContactDetailsComponent', () => {
   });
   it('should have email', () => {
     const contactComponent = fixture.debugElement.componentInstance;
-    expect(contactComponent.email).toEqual('support@movein.com');
+    expect(contactComponent.email).toEqual('simtyuku@gmail.com');
   });
   it('should have message', () => {
     const contactComponent = fixture.debugElement.componentInstance;

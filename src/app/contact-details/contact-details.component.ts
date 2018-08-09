@@ -10,7 +10,7 @@ export class ContactDetailsComponent implements OnInit {
   message: string;
   constructor() {
     this.message = 'You can contact our support team for further information about the MOVEIN platform.';
-    this.email = 'support@movein.com';
+    this.email = 'simtyuku@gmail.com';
   }
 
   ngOnInit() {

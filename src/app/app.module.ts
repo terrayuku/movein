@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UnemployedCounterComponent } from './unemployed-counter/unemployed-counter.component';
@@ -25,6 +26,7 @@ import { PreRegistrationComponent } from './pre-registration/pre-registration.co
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatCardModule,
     MatButtonModule,
     MatDialogModule,

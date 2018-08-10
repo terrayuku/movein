@@ -28,3 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Continuous Integration
 
 Create a get started angular project using angular cli and go throw the following video to understand CI [Continuous Integration with Angular and Travis CI](https://www.youtube.com/watch?v=ojr2Dy0Pjhw)
+
+## Firebase
+
+This application is using firebase as its backend. To understand firebase with Angular, please read [Angular + Firebase](https://medium.com/factory-mind/angular-firebase-typescript-step-by-step-tutorial-2ef887fc7d71)
+

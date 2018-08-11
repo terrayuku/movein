@@ -6,22 +6,15 @@
         <mat-card-subtitle class="sub-title">Build a creative personal profile</mat-card-subtitle>
         <hr />
         <mat-card-content>
-          <p>
-            <input type="text" class="inputFiled" placeholder="First Name"/>
-            <input type="text" class="inputFiled" placeholder="Last Name" />
-          </p>
-          <p>
-            <input type="email" placeholder="Emaile"/>
-            <input type="tel" placeholder="Cell Phone Number" />
-          </p>
-          <p>
-            <input type="password" placeholder="Password"/>
-            <input type="password" placeholder="Confirm Password" />
+         <p *ngIf="!(authService.user | async)">
+            <input type="email" required [(ngModel)]="email" placeholder="Email"/>
+            <input type="password" required [(ngModel)]="password" placeholder="Password"/>
+            <input type="password" required [(ngModel)]="cPassword" placeholder="Confirm Password" />
           </p>
         </mat-card-content>
         <mat-card-actions class="action">
           <button mat-flat-button color="basic" class="cancel" routerLink="/">Cancel</button>
-          <button mat-stroked-button color="primary" class="signup" routerLink="/update-profile">Sign Up</button>
+          <button mat-stroked-button color="primary" class="signup" (click)="signUp()">Sign Up</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

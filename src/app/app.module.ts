@@ -22,6 +22,7 @@ import { PreRegistrationComponent } from './pre-registration/pre-registration.co
 import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
 import { environment } from '../environments/environment';
 import {AuthService} from './auth.service';
 

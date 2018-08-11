@@ -32,6 +32,7 @@ export class AuthService {
       .then(response => {
         console.log('Welcome', response);
         // navigate to dashboard
+        this.router.navigate(['/update-profile']);
       })
       .catch(error => {
         console.log('ERROR Login ', error.message);

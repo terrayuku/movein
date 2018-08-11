@@ -7,26 +7,18 @@ import {AuthService} from '../auth.service';
 })
 export class PreRegistrationComponent implements OnInit {
   email: string;
-  cPassword: string;
   password: string;
-  passwordMatched: boolean;
+  errorMessage: string;
+  button: boolean;
   constructor(public authService: AuthService) {
-    console.log('AUth', authService);
+    this.errorMessage = '';
   }
   ngOnInit() { }
-
-  private matchPassword(password: string, cPassword): boolean {
-    if (password === cPassword) {
-      // password match
-      return true;
-    } else {
-      return false;
-    }
-  }
   signUp() {
-    this.passwordMatched = this.matchPassword(this.password, this.cPassword);
-    if (this.passwordMatched) {
+    if (this.email && this.password) {
       this.authService.signUp(this.email, this.password);
+    } else {
+      this.errorMessage = 'Please complete the form';
     }
   }
   logOut() {

@@ -25,7 +25,7 @@ body {
   font-weight: 500;
 }
 
-input[type=text], input[type=email], input[type=number], input[type=password], textarea {
+input[type=text], input[type=email], input[type=number], input[type=password], textarea, input {
   -webkit-transition: border-color 0.2s;
   -moz-transition: border-color 0.2s;
   transition: border-color 0.2s;
@@ -50,4 +50,9 @@ input[type=text], input[type=email], input[type=number], input[type=password], t
 .rg-container {
   padding-left: 25em;
   padding-right: 25em;
+}
+
+.errorMessage {
+  color: red;
+  margin-left: 10em;
 }

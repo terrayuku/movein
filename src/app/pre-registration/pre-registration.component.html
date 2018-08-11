@@ -6,10 +6,10 @@
         <mat-card-subtitle class="sub-title">Build a creative personal profile</mat-card-subtitle>
         <hr />
         <mat-card-content>
-         <p *ngIf="!(authService.user | async)">
+          <p class="errorMessage"> {{ errorMessage }}</p>
+         <p>
             <input type="email" required [(ngModel)]="email" placeholder="Email"/>
             <input type="password" required [(ngModel)]="password" placeholder="Password"/>
-            <input type="password" required [(ngModel)]="cPassword" placeholder="Confirm Password" />
           </p>
         </mat-card-content>
         <mat-card-actions class="action">

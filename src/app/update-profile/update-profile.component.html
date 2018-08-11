@@ -1,4 +1,21 @@
 <div class="rg-container">
+  <mat-grid-list cols="1">
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-title>Update Personal Info {{ email }}</mat-card-title>
+          <mat-card-content>
+            <p> {{ errorMessage }} </p>
+            <p>
+              <input type="text" [(ngModel)]="firstName" placeholder="First Name" />
+              <input type="text" [(ngModel)]="lastName" placeholder="Last Name" />
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button (click)="userProfile()" class="save">Update</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+  </mat-grid-list>
   <mat-grid-list cols="2">
       <mat-grid-tile>
         <mat-card class="skills">
@@ -7,12 +24,12 @@
           <hr />
           <mat-card-content>
             <p>
-              <input type="text"/>
-              <input type="text"/>
+              <input [(ngModel)]="skill_1" type="text"/>
+              <input [(ngModel)]="skill_2" type="text"/>
             </p>
             <p>
-              <input type="text"/>
-              <input type="text"/>
+              <input [(ngModel)]="skill_3" type="text"/>
+              <input [(ngModel)]="skill_4" type="text"/>
             </p>
             <p>
               <input type="text"/>
@@ -20,24 +37,24 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button class="save">Save</button>
+            <button mat-raised-button (click)="addSkills()" class="save">Save</button>
           </mat-card-actions>
         </mat-card>
       </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-card class="next">
-          <mat-card-title>Whats Your next move?</mat-card-title>
-          <mat-card-subtitle>What do you want to do in the next 6 months?</mat-card-subtitle>
-          <hr />
-          <mat-card-content>
-            <p>
-              <textarea placeholder="What is your short term goal?"></textarea>
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-          <button mat-raised-button class="save">Save</button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
+      <!--<mat-grid-tile disabled="true">-->
+        <!--<mat-card class="next">-->
+          <!--<mat-card-title>Whats Your next move?</mat-card-title>-->
+          <!--<mat-card-subtitle>What do you want to do in the next 6 months?</mat-card-subtitle>-->
+          <!--<hr />-->
+          <!--<mat-card-content>-->
+            <!--<p>-->
+              <!--<textarea [(ngModel)]="next" placeholder="What is your short term goal?"></textarea>-->
+            <!--</p>-->
+          <!--</mat-card-content>-->
+          <!--<mat-card-actions>-->
+          <!--<button mat-raised-button (click)="addNext()" class="save">Save</button>-->
+          <!--</mat-card-actions>-->
+        <!--</mat-card>-->
+      <!--</mat-grid-tile>-->
   </mat-grid-list>
 </div>

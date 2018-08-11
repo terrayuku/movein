@@ -7,6 +7,12 @@ import {MatButtonModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+
+
 import { AppComponent } from './app.component';
 import { UnemployedCounterComponent } from './unemployed-counter/unemployed-counter.component';
 import { MoveinComponent } from './movein/movein.component';
@@ -16,6 +22,9 @@ import { PreRegistrationComponent } from './pre-registration/pre-registration.co
 import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
+import { environment } from '../environments/environment';
+import {AuthService} from './auth.service';
 
 @NgModule({
   declarations: [
@@ -36,9 +45,12 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     MatButtonModule,
     MatDialogModule,
     MatGridListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService, AngularFireAuth],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

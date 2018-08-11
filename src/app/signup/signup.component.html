@@ -6,13 +6,14 @@
         <hr />
         <mat-card-content>
           <p>
-            <input type="email" class="inputFiled" placeholder="Email / phone"/>
-            <input type="password" class="inputFiled" placeholder="Password" />
+            <input type="email" [(ngModel)]="email" placeholder="Email"/>
+            <input type="password" [(ngModel)]="password" placeholder="Password" />
           </p>
+          <p>
         </mat-card-content>
         <mat-card-actions class="action">
           <button mat-flat-button color="basic" class="cancel" routerLink="/">Cancel</button>
-          <button mat-stroked-button color="primary" class="signin" routerLink="/profile">Sign In</button>
+          <button mat-stroked-button color="primary" class="signin" (click)="signIn()">Sign In</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

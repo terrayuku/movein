@@ -16,7 +16,11 @@ export class UserService {
   displayName: string;
   skills: Array<any>;
   next: Array<any>;
-  constructor(private db: AngularFireDatabase, private firebaseAuth: AngularFireAuth) {
+  constructor(
+    private db: AngularFireDatabase,
+    private firebaseAuth: AngularFireAuth,
+    private router: Router
+  ) {
     this.user = firebaseAuth.authState;
     if (this.user) {
       console.log('Loged in', this.user);
@@ -37,6 +41,8 @@ export class UserService {
     this.db.database.ref('candidates/skills').push({
       skills: this.skills,
       displayName: this.displayName
+    }).then(response => {
+      this.router.navigate(['/dashboard']);
     });
   }
   // addNext(next: Array<any>) {

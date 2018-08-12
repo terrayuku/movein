@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   options: FormGroup;
   logedInUser: string;
   constructor(fb: FormBuilder, public user: UserService, private authUser: AuthService) {
-
     this.options = fb.group({
       bottom: 0,
       fixed: true,

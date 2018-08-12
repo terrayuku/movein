@@ -32,7 +32,7 @@ export class AuthService {
       .then(response => {
         console.log('Welcome', response);
         // navigate to dashboard
-        this.router.navigate(['/update-profile']);
+        this.router.navigate(['/dashboard']);
       })
       .catch(error => {
         console.log('ERROR Login ', error.message);
@@ -42,5 +42,6 @@ export class AuthService {
     this.firebaseAuth
       .auth
       .signOut();
+    this.router.navigate(['/']);
   }
 }

@@ -1,14 +1,4 @@
-<div class="movein-nav" id="myTopnav">
-  <a href="/">{{ title }}</a>
-  <app-register></app-register>
-  <app-unemployed-counter></app-unemployed-counter>
-</div>
-<!--<app-dashboard></app-dashboard>-->
-
-<div>
-  <app-movein></app-movein>
-  <router-outlet></router-outlet>
-<footer>
-  <app-contact-details></app-contact-details>
-</footer>
-</div>
+<router-outlet></router-outlet>
+<router-outlet name="SignIn"></router-outlet>
+<router-outlet name="UpdateProfile"></router-outlet>
+<router-outlet name="Dashboard"></router-outlet>

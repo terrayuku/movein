@@ -26,6 +26,7 @@
 
 .logout {
   left: 110em;
+  padding: 12px;
 }
 
 
@@ -43,4 +44,12 @@
 
 p {
   padding-left: 25em;
+}
+
+ul {
+  background-color: black;
+  margin-left: 20em;
+}
+li {
+  color: white;
 }

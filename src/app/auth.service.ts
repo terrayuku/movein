@@ -10,16 +10,20 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   user: Observable<firebase.User>;
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
-    console.log(firebaseAuth);
+  userUid: string;
+  constructor(
+    private firebaseAuth: AngularFireAuth,
+    private router: Router
+  ) {
     this.user = firebaseAuth.authState;
   }
   signUp(email: string, password: string) {
     this.firebaseAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(response => {
-        console.log('Success! ', response);
+        console.log('New User', response.user.uid);
+        this.userUid = response.user.uid;
         // navigate to profile
-        this.router.navigate(['/update-profile']);
+        this.router.navigate(['/update-profile', response.user.uid]);
       })
       .catch(err => {
         console.log('ERROR', err.message);
@@ -30,9 +34,9 @@ export class AuthService {
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(response => {
-        console.log('Welcome', response);
+        this.userUid = response.user.uid;
         // navigate to dashboard
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard', response.user.uid]);
       })
       .catch(error => {
         console.log('ERROR Login ', error.message);

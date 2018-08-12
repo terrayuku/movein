@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: PreRegistrationComponent },
   { path: 'signin', component: SignupComponent },
-  { path: 'update-profile', component: UpdateProfileComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'update-profile/:uid', component: UpdateProfileComponent },
+  { path: 'dashboard/:uid', component: DashboardComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

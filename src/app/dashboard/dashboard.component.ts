@@ -9,9 +9,9 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   options: FormGroup;
   logedInUser: string;
+  skills: any;
   constructor(fb: FormBuilder, public user: UserService, private authUser: AuthService) {
     this.options = fb.group({
       bottom: 0,
@@ -27,5 +27,8 @@ export class DashboardComponent implements OnInit {
   }
   logOut() {
     this.authUser.logout();
+  }
+  getUserSkills() {
+    this.skills = this.user.getSkills();
   }
 }

@@ -12,10 +12,9 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   user: Observable<firebase.User>;
-  candidates: FirebaseListObservable<any[]>;
   displayName: string;
   skills: Array<any>;
-  next: Array<any>;
+  userId: string;
   constructor(
     private db: AngularFireDatabase,
     private firebaseAuth: AngularFireAuth,
@@ -24,8 +23,17 @@ export class UserService {
     this.user = firebaseAuth.authState;
     if (this.user) {
       console.log('Loged in', this.user);
+      // user details
       this.getUser().subscribe((u) => {
         this.displayName = u.displayName;
+        this.userId = u.uid;
+        // load skills
+        this.db.database.ref('candidates/' + this.userId).on('value', (snap) => {
+          snap.forEach(s => {
+            console.log(s.val().skills);
+            this.skills = s.val().skills;
+          });
+        });
       });
     } else {
       console.log('Please log in');
@@ -35,12 +43,13 @@ export class UserService {
   public getUser() {
     return this.user;
   }
+  public getSkills() {
+    return this.skills;
+  }
   addSkills(skills: Array<any>) {
-    console.log(skills);
     this.skills = skills;
-    this.db.database.ref('candidates/skills').push({
-      skills: this.skills,
-      displayName: this.displayName
+    this.db.database.ref('candidates/' + this.userId).push({
+      skills: this.skills
     }).then(response => {
       this.router.navigate(['/dashboard']);
     });

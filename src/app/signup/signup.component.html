@@ -12,7 +12,7 @@
           <p>
         </mat-card-content>
         <mat-card-actions class="action">
-          <button mat-flat-button color="basic" class="cancel" routerLink="/">Cancel</button>
+          <button mat-flat-button color="basic" class="cancel" (click)="onNoClick()">Cancel</button>
           <button mat-stroked-button color="primary" class="signin" (click)="signIn()">Sign In</button>
         </mat-card-actions>
       </mat-card>

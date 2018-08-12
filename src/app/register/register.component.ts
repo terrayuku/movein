@@ -23,15 +23,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   signIn() {
-    // this.router.navigate(['/signin']);
     const dialogRef = this.dialog.open(SignupComponent, {
-      width: '560px',
-      opacity: '0 !important',
-      data: {password: this.password, email: this.email}
+      width: '560px'
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.email = result;
-    });
+    dialogRef.afterClosed();
   }
 }

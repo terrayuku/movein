@@ -64,6 +64,7 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import {
     PreRegistrationComponent,
     SignupComponent,
     UpdateProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

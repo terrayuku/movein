@@ -1,6 +1,8 @@
 <ng-container>
-  <mat-toolbar class="example-header">Terra Byte</mat-toolbar>
-  <mat-toolbar class="example-header logout">Logout</mat-toolbar>
+  <mat-toolbar class="example-header">{{ logedInUser }}</mat-toolbar>
+  <mat-toolbar class="example-header logout">
+    <button mat-button (click)="logOut()">Logout</button>
+  </mat-toolbar>
 
   <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav"

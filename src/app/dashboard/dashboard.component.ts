@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {UserService} from "../user.service";
-import {AuthService} from "../auth.service";
+import {UserService} from '../user.service';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-dashboard',

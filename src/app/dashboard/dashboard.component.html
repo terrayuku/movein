@@ -10,20 +10,23 @@
                  [fixedTopGap]="options.value.top"
                  [fixedBottomGap]="options.value.bottom">
       <mat-sidenav-content>
-        <button mat-button>Profile</button>
+        <button mat-button (click)="getProfile()">Profile</button>
         <button mat-button (click)="getUserSkills()">Skills & Passion</button>
         <button mat-button>Next</button>
         <button mat-button>Industries</button>
       </mat-sidenav-content>
     </mat-sidenav>
 
-    <mat-sidenav-content [formGroup]="options" class="content">
+    <mat-sidenav-content [formGroup]="options" class="content" *ngIf="!displayProfile">
       <ul>
         <li *ngFor="let skill of skills">
           {{ skill }}
         </li>
       </ul>
     </mat-sidenav-content>
+    <p *ngIf="displayProfile">
+      <app-update-profile *ngIf="displayProfile"></app-update-profile>
+    </p>
   </mat-sidenav-container>
 
   <mat-toolbar class="example-footer">Footer</mat-toolbar>

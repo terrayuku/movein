@@ -1,10 +1,9 @@
 .skills {
   left: 0px;
-  width: auto;
+  width: 61% !important;
   margin-top: 0px;
-  padding-top: 8px !important;
+  padding-top: 16px !important;
 }
-
 .save {
   background-color: #4CAF50;
   border-radius: 4px;
@@ -25,4 +24,15 @@ textarea {
   margin: 0px 0px 0px 4px;
   width: 397px;
   height: 180px;
+}
+
+.mat-grid-tile {
+  left: 0px;
+  width: 100% !important;
+  margin-top: 0px;
+  padding-top: 24em !important;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none !important;
 }

@@ -11,19 +11,23 @@ import { Observable } from 'rxjs';
 export class AuthService {
   user: Observable<firebase.User>;
   userUid: string;
+  displayName: string;
   constructor(
     private firebaseAuth: AngularFireAuth,
     private router: Router
   ) {
     this.user = firebaseAuth.authState;
   }
+  public getDisplayName() {
+    return this.displayName;
+  }
   signUp(email: string, password: string) {
     this.firebaseAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(response => {
-        console.log('New User', response.user.uid);
         this.userUid = response.user.uid;
+        this.displayName = response.user.displayName === '' ? response.user.email : response.user.displayName;
         // navigate to profile
-        this.router.navigate(['/update-profile', response.user.uid]);
+        this.router.navigate(['/dashboard', this.userUid]);
       })
       .catch(err => {
         console.log('ERROR', err.message);
@@ -45,7 +49,10 @@ export class AuthService {
   logout() {
     this.firebaseAuth
       .auth
-      .signOut();
-    this.router.navigate(['/']);
+      .signOut().then(() => {
+        this.userUid = '';
+        this.displayName = '';
+        this.router.navigate(['/']);
+    });
   }
 }

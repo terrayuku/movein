@@ -19,16 +19,17 @@ export class UpdateProfileComponent implements OnInit {
   skill_2: string;
   skill_3: string;
   skill_4: string;
-  next: string;
+  next: boolean;
   skills: Array<any>;
-
   constructor(public user: UserService) {
     this.user.getUser().subscribe(u => {
       this.email = u.email;
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.next = false;
+  }
 
   userProfile() {
     this.user.getUser().subscribe((u) => {
@@ -38,6 +39,7 @@ export class UpdateProfileComponent implements OnInit {
           displayName: this.firstName + '  ' + this.lastName,
           photoURL: ''
         });
+        this.next = true;
       } else {
         this.errorMessage = 'Please complete the form';
       }

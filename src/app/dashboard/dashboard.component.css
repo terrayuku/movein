@@ -4,6 +4,7 @@
   bottom: 60px;
   left: 0;
   right: 0;
+  height: 20px !important;
 }
 
 .example-sidenav {

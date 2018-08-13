@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserService} from '../user.service';
 import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,13 @@ export class DashboardComponent implements OnInit {
   options: FormGroup;
   logedInUser: string;
   skills: any;
-  constructor(fb: FormBuilder, public user: UserService, private authUser: AuthService) {
+  displayProfile: boolean;
+  constructor(
+    fb: FormBuilder,
+    public user: UserService,
+    private authUser: AuthService,
+    private router: Router
+  ) {
     this.options = fb.group({
       bottom: 0,
       fixed: true,
@@ -21,14 +28,18 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user.getUser().subscribe(u => {
-      this.logedInUser = u.displayName;
-    });
+    this.logedInUser = this.user.getDisplayName();
+    this.displayProfile = true;
   }
   logOut() {
     this.authUser.logout();
   }
   getUserSkills() {
+    this.displayProfile = false;
     this.skills = this.user.getSkills();
+  }
+  getProfile() {
+    this.displayProfile = true;
+    // this.router.navigate(['/update-profile', this.authUser.userUid]);
   }
 }

@@ -20,12 +20,14 @@ export class UserService {
     private firebaseAuth: AngularFireAuth,
     private router: Router
   ) {
+    this.displayName = '';
+    this.userId = '';
     this.user = firebaseAuth.authState;
     if (this.user) {
       console.log('Loged in', this.user);
       // user details
       this.getUser().subscribe((u) => {
-        this.displayName = u.displayName;
+        this.displayName = u.displayName === '' ? u.email : u.displayName;
         this.userId = u.uid;
         // load skills
         this.db.database.ref('candidates/' + this.userId).on('value', (snap) => {
@@ -46,12 +48,15 @@ export class UserService {
   public getSkills() {
     return this.skills;
   }
+  public getDisplayName() {
+    return this.displayName;
+  }
   addSkills(skills: Array<any>) {
     this.skills = skills;
     this.db.database.ref('candidates/' + this.userId).push({
       skills: this.skills
     }).then(response => {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard', this.userId]);
     });
   }
   // addNext(next: Array<any>) {

@@ -1,7 +1,7 @@
 <div class="rg-container">
-  <mat-grid-list cols="1">
+  <mat-grid-list cols="1" *ngIf="!next">
       <mat-grid-tile>
-        <mat-card>
+        <mat-card class="skills">
           <mat-card-title>Update Personal Info {{ email }}</mat-card-title>
           <mat-card-content>
             <p> {{ errorMessage }} </p>
@@ -16,7 +16,7 @@
         </mat-card>
       </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols="2">
+  <mat-grid-list cols="2" *ngIf="next">
       <mat-grid-tile>
         <mat-card class="skills">
           <mat-card-title>Skills & Passions</mat-card-title>

@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   logedInUser: string;
   skills: any;
   displayProfile: boolean;
+  selectTalents: boolean;
   constructor(
     fb: FormBuilder,
     public user: UserService,
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.logedInUser = this.user.getDisplayName();
     this.displayProfile = true;
+    this.selectTalents = false;
   }
   logOut() {
     this.authUser.logout();
@@ -41,5 +43,11 @@ export class DashboardComponent implements OnInit {
   getProfile() {
     this.displayProfile = true;
     // this.router.navigate(['/update-profile', this.authUser.userUid]);
+  }
+  selectTalent() {
+    this.selectTalents = true;
+    this.displayProfile = false;
+
+
   }
 }

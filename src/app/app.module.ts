@@ -65,6 +65,7 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
+import { TalentComponent } from './talent/talent.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     UpdateProfileComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    TalentComponent
   ],
   imports: [
     BrowserModule,

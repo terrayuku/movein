@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-title>Talents</mat-card-title>
+  <mat-card-subtitle>Please pic atleast 3 talents that speak to you</mat-card-subtitle>
+  <mat-card-content>
+        <button mat-button *ngFor="let talent of talents" ngClass="{selected: sTalent}"
+                (click)="selectedTalent();" class="talent" > {{ talent.name }}</button>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button class="btn-primary">Next</button>
+  </mat-card-actions>
+</mat-card>

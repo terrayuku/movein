@@ -12,7 +12,7 @@
       <mat-sidenav-content>
         <button mat-button (click)="getProfile()">Profile</button>
         <button mat-button (click)="getUserSkills()">Skills & Passion</button>
-        <button mat-button>Next</button>
+        <button mat-button (click)="selectTalent()">Talents</button>
         <button mat-button>Industries</button>
       </mat-sidenav-content>
     </mat-sidenav>
@@ -26,6 +26,9 @@
     </mat-sidenav-content>
     <p *ngIf="displayProfile">
       <app-update-profile *ngIf="displayProfile"></app-update-profile>
+    </p>
+    <p *ngIf="selectTalents">
+      <app-talent></app-talent>
     </p>
   </mat-sidenav-container>
 

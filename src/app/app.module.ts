@@ -7,6 +7,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // import {MatDialogModule} from '@angular/material';
 // import {FormsModule} from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { talentReducer } from './reducer/talent.reducer';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
@@ -66,6 +69,8 @@ import {
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { TalentComponent } from './talent/talent.component';
+import { TalentReadComponent } from './talent-read/talent-read.component';
+import { TalentCreateComponent } from './talent-create/talent-create.component';
 
 
 @NgModule({
@@ -80,7 +85,9 @@ import { TalentComponent } from './talent/talent.component';
     UpdateProfileComponent,
     DashboardComponent,
     HomeComponent,
-    TalentComponent
+    TalentComponent,
+    TalentReadComponent,
+    TalentCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +102,10 @@ import { TalentComponent } from './talent/talent.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({
+      talent: talentReducer
+    })
   ],
   // exports: [
   //   MatAutocompleteModule,

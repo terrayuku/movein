@@ -11,7 +11,7 @@ import * as TalentActoins from './../actoins/talent.actions';
   styleUrls: ['./talent-read.component.css']
 })
 export class TalentReadComponent implements OnInit {
-  talents: Observable<Talent>
+  talents: Observable<Talent>;
   constructor(private store: Store<AppState>) {
     this.talents = store.select('talent');
   }

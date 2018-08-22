@@ -69,6 +69,8 @@ import {
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { TalentComponent } from './talent/talent.component';
+import { TalentReadComponent } from './talent-read/talent-read.component';
+import { TalentCreateComponent } from './talent-create/talent-create.component';
 
 import { TalentReadComponent } from './talent-read/talent-read.component';
 import { TalentCreateComponent } from './talent-create/talent-create.component';

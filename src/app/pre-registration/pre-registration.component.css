@@ -37,6 +37,11 @@
   padding-top: 25em !important;
 }
 
+.title {
+  padding-top: 0em !important;
+  padding-left: 12em;
+}
+
 p {
   padding: 10px;
 }

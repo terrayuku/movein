@@ -12,7 +12,7 @@ import { defer } from 'rxjs/observable/defer';
 import '../utils/rxjs.operators';
 
 import {AppState} from '../app.state';
-import {User} from './user.model';
+import {NewUser, User} from './user.model';
 import {UsersQuery} from './user.reducer';
 
 import * as userActions from './user.actions';
@@ -24,13 +24,30 @@ type Action = userActions.All;
 @Injectable()
 export class UserEffects {
   user$ = this.store.pipe(select(UsersQuery.getUser));
+  createdUser$ = this.store.pipe(select(UsersQuery.getCreatedUser));
+  @Effect() createUser$: Observable<Action> = this.actions$
+    .pipe(ofType(userActions.CREATE_USER),
+      map(( action: userActions.CreateUser) => action.payload),
+      switchMap(payload => {
+        return Observable.fromPromise(this.createUser(payload));
+      }))
+    .map(newUser => {
+      console.log('New User', newUser);
+      if (newUser) {
+        const new_user = new NewUser(newUser.uid, newUser.email);
+        return new userActions.CreateUser(new_user);
+      }
+    })
+    .catch(err => of(new userActions.AuthError({error: err.message})));
   @Effect() getUser$: Observable<Action> = this.actions$.pipe(ofType(userActions.GET_USER),
     map((action: userActions.GetUser) => action.payload ),
     switchMap(payload => this.afAuth.authState ))
     .map( authData => {
       if (authData) {
         /// User logged in
-        const user = new User(authData.uid, authData.displayName);
+        console.log(authData.displayName);
+        const displayName = authData.displayName === null ? authData.email : authData.displayName;
+        const user = new User(authData.uid, displayName);
         return new userActions.Authenticated(user);
       } else {
         /// User not logged in
@@ -98,6 +115,10 @@ export class UserEffects {
   /**
    *
    */
+  createuser(email: string, password: string): any {
+    this.store.dispatch(new userActions.CreateUser({email: email, password: password}));
+    // return this.user$;
+  }
   login(): Observable<User> {
     this.store.dispatch(new userActions.GoogleLogin());
     return this.user$;
@@ -119,7 +140,16 @@ export class UserEffects {
   // Internal Methods
   // ******************************************
 
-
+  protected createUser(payload): Promise<any> {
+    return this.afAuth.auth.createUserWithEmailAndPassword(payload.email, payload.password)
+      .then(response => {
+        // this.store.dispatch(new userActions.Authenticated(new User(response.user.uid, response.user.email)));
+        this.router.navigate(['/dashboard', response.user.uid]);
+      })
+      .catch(error => {
+        console.log('Error Creating User', error.message);
+      });
+  }
   protected googleLogin(): Promise<any> {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.afAuth.auth.signInWithPopup(provider)

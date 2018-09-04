@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { MatDialog  } from '@angular/material';
 import { SignupComponent } from '../signup/signup.component';
+import {PreRegistrationComponent} from '../pre-registration/pre-registration.component';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +25,12 @@ export class RegisterComponent implements OnInit {
   }
   signIn() {
     const dialogRef = this.dialog.open(SignupComponent, {
+      width: '560px'
+    });
+    dialogRef.afterClosed();
+  }
+  creeateUser() {
+    const dialogRef = this.dialog.open(PreRegistrationComponent, {
       width: '560px'
     });
     dialogRef.afterClosed();

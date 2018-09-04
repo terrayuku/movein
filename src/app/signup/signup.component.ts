@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth.service';
 import { MatDialogRef } from '@angular/material';
+import {Observable} from 'rxjs/Rx';
+import {User} from '../state/user/user.model';
+import {UserEffects} from '../state/user/user.effects';
 
 @Component({
   selector: 'app-signup',
@@ -11,16 +13,24 @@ export class SignupComponent implements OnInit {
 
   email: string;
   password: string;
+  user$: Observable<User> = this.userService.user$;
   constructor(
-    public authService: AuthService,
-    public dialogRef: MatDialogRef<SignupComponent>
+    public dialogRef: MatDialogRef<SignupComponent>,
+    private userService: UserEffects
   ) { }
 
   ngOnInit() {
   }
-
-  signIn() {
-    this.authService.signin(this.email, this.password);
+  login () {
+    this.userService.login();
+    this.dialogRef.close();
+  }
+  logout () {
+    this.userService.logout();
+    this.dialogRef.close();
+  }
+  signin() {
+    this.userService.signin(this.email, this.password);
     this.dialogRef.close();
   }
   onNoClick() {

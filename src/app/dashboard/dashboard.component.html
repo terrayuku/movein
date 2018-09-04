@@ -1,5 +1,6 @@
+<div *ngIf="user$ | async as user">
 <ng-container>
-  <mat-toolbar class="example-header">{{ logedInUser }}</mat-toolbar>
+  <mat-toolbar class="example-header">{{ user.displayName }}</mat-toolbar>
   <mat-toolbar class="example-header logout">
     <button mat-button (click)="logOut()">Logout</button>
   </mat-toolbar>
@@ -34,3 +35,4 @@
 
   <mat-toolbar class="example-footer">Footer</mat-toolbar>
 </ng-container>
+</div>

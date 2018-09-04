@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Effect, Actions } from '@ngrx/effects';
+import { Effect, Actions, ofType } from '@ngrx/effects';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { Observable } from 'rxjs/Observable';
@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/Observable';
 import '../utils/rxjs.operators';
 
 import {AppState} from '../app.state';
-import {Talent} from './talent.model';
+import {select} from '@ngrx/core';
+import {switchMap, map, mergeMap} from 'rxjs-compat/operator';
 import {TalentQuery} from './talent.reducer';
 
 // import { AUTHENTICATED } from '../users/user.actions';
@@ -17,14 +18,14 @@ type Action = talentActions.All;
 
 @Injectable()
 export class TalentEffects {
-  talent$ = this.store.select(TalentQuery.getTalent);
+  talent$ = this.store.pip(select(TalentQuery.getTalent));
   // @Effect()
   // init$: Observable<Action> = this.a.ofType(AUTHENTICATED)
   //   .map(_ => new talentActions.GetTalent('/talent/all'));
   @Effect()
-  getTalent$: Observable<Action> = this.actions$.ofType(talentActions.GET_TALENT)
-    .map((action: talentActions.GetTalent) => action.payload)
-    .mergeMap(payload => this.db.object(payload).valueChanges())
+  getTalent$: Observable<Action> = this.actions$.pipe(ofType(talentActions.GET_TALENT),
+    map((action: talentActions.GetTalent) => action.payload),
+    mergeMap(payload => this.db.object(payload).valueChanges()))
     .map((talent) => {
       // talent.pushKey = talent.$key;
       return new talentActions.GetTalentSuccess(talent);

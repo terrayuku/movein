@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import {Effect, Actions, ofType} from '@ngrx/effects';
 
 import * as firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 import { defer } from 'rxjs/observable/defer';
 import '../utils/rxjs.operators';
 
@@ -16,8 +17,8 @@ import {UsersQuery} from './user.reducer';
 
 import * as userActions from './user.actions';
 import {Router} from '@angular/router';
-import {select} from '@ngrx/core';
-import {switchMap, map} from 'rxjs-compat/operator';
+import {map} from 'rxjs-compat/operators/map';
+import {switchMap} from 'rxjs-compat/operators/switchMap';
 type Action = userActions.All;
 
 @Injectable()
@@ -37,10 +38,10 @@ export class UserEffects {
       }
 
     })
-    .catch(err =>  Observable.of(new userActions.AuthError()) );
+    .catch(err =>  of(new userActions.AuthError()) );
 
 
-  @Effect() login$: Observable<Action> = this.actions$.pip(ofType(userActions.GOOGLE_LOGIN),
+  @Effect() login$: Observable<Action> = this.actions$.pipe(ofType(userActions.GOOGLE_LOGIN),
     map((action: userActions.GoogleLogin) => action.payload),
     switchMap(payload => {
       // console.log('Payload', payload);
@@ -51,7 +52,7 @@ export class UserEffects {
       return new userActions.GetUser();
     })
     .catch(err => {
-      return Observable.of(new userActions.AuthError({error: err.message}));
+      return of(new userActions.AuthError({error: err.message}));
     });
   @Effect() signin$: Observable<Action> = this.actions$.pipe(ofType(userActions.AUTHENTICATE_EMAIL_PASSWORD),
     map((action: userActions.AuthenticateEmailPassword) => action.payload),
@@ -62,19 +63,19 @@ export class UserEffects {
       return new userActions.GetUser();
     })
     .catch(err => {
-      return Observable.of(new userActions.AuthError({error: err.message}));
+      return of(new userActions.AuthError({error: err.message}));
     });
 
 
-  @Effect() logout$: Observable<Action> = this.actions$.pip(ofType(userActions.LOGOUT),
+  @Effect() logout$: Observable<Action> = this.actions$.pipe(ofType(userActions.LOGOUT),
     map((action: userActions.Logout) => action.payload ),
     switchMap(payload => {
-      return Observable.of( this.signOut() );
+      return of( this.signOut() );
     }))
     .map( authData => {
       return new userActions.NotAuthenticated();
     })
-    .catch(err => Observable.of(new userActions.AuthError({error: err.message})) );
+    .catch(err => of(new userActions.AuthError({error: err.message})) );
 
 
   @Effect({dispatch: false})

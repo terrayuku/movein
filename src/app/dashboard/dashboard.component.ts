@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../state/user/user.model';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import {UserEffects} from '../state/user/user.effects';
 
 @Component({
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
     this.displayProfile = true;
     this.selectTalents = false;
   }
-  logOut() {
+  logout() {
     this.userService.logout();
   }
   // getUserSkills() {

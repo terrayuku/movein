@@ -38,8 +38,6 @@ import {
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import {AppStateModule} from './state/app.state.module';
-import {userReducer} from "./state/user/user.reducer";
-import {talentReducer} from "./state/talent/talent.reducer";
 
 
 @NgModule({

@@ -1,20 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// import {MatCardModule} from '@angular/material';
-// import {MatGridListModule} from '@angular/material';
-// import {MatButtonModule} from '@angular/material';
-// import {MatDialogModule} from '@angular/material';
-// import {FormsModule} from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
-import { talentReducer } from './reducer/talent.reducer';
-
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
-
+import { StoreRouterConnectingModule,  RouterStateSerializer } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { UnemployedCounterComponent } from './unemployed-counter/unemployed-counter.component';
@@ -25,6 +14,8 @@ import { PreRegistrationComponent } from './pre-registration/pre-registration.co
 import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
+import { reducers, CustomSerializer } from './state/reducers';
 
 import { environment } from '../environments/environment';
 import {AuthService} from './auth.service';
@@ -44,36 +35,12 @@ import {
   MatDividerModule,
   MatExpansionModule,
   MatGridListModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatSortModule,
-  MatStepperModule,
-  MatTableModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  MatTreeModule,
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
-import { TalentComponent } from './talent/talent.component';
-import { TalentReadComponent } from './talent-read/talent-read.component';
-import { TalentCreateComponent } from './talent-create/talent-create.component';
+import {AppStateModule} from './state/app.state.module';
+import {userReducer} from "./state/user/user.reducer";
+import {talentReducer} from "./state/talent/talent.reducer";
 
-import { TalentReadComponent } from './talent-read/talent-read.component';
-import { TalentCreateComponent } from './talent-create/talent-create.component';
 
 @NgModule({
   declarations: [
@@ -86,12 +53,10 @@ import { TalentCreateComponent } from './talent-create/talent-create.component';
     SignupComponent,
     UpdateProfileComponent,
     DashboardComponent,
-    HomeComponent,
-    TalentComponent,
-    TalentReadComponent,
-    TalentCreateComponent
+    HomeComponent
   ],
   imports: [
+    AppStateModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -100,53 +65,13 @@ import { TalentCreateComponent } from './talent-create/talent-create.component';
     MatDialogModule,
     MatGridListModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     ReactiveFormsModule,
     FormsModule,
-    StoreModule.forRoot({
-      talent: talentReducer
-    })
+    StoreModule.forRoot(reducers),
+    StoreRouterConnectingModule.forRoot(),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
-  // exports: [
-  //   MatAutocompleteModule,
-  //   MatBadgeModule,
-  //   MatBottomSheetModule,
-  //   MatButtonModule,
-  //   MatButtonToggleModule,
-  //   MatCardModule,
-  //   MatCheckboxModule,
-  //   MatChipsModule,
-  //   MatStepperModule,
-  //   MatDatepickerModule,
-  //   MatDialogModule,
-  //   MatDividerModule,
-  //   MatExpansionModule,
-  //   MatGridListModule,
-  //   MatIconModule,
-  //   MatInputModule,
-  //   MatListModule,
-  //   MatMenuModule,
-  //   MatNativeDateModule,
-  //   MatPaginatorModule,
-  //   MatProgressBarModule,
-  //   MatProgressSpinnerModule,
-  //   MatRadioModule,
-  //   MatRippleModule,
-  //   MatSelectModule,
-  //   MatSidenavModule,
-  //   MatSliderModule,
-  //   MatSlideToggleModule,
-  //   MatSnackBarModule,
-  //   MatSortModule,
-  //   MatTableModule,
-  //   MatTabsModule,
-  //   MatToolbarModule,
-  //   MatTooltipModule,
-  //   MatTreeModule,
-  // ],
-  providers: [AuthService, AngularFireAuth],
+  providers: [{provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

@@ -5,6 +5,25 @@
         <mat-card-title class="card-title title">Sign In</mat-card-title>
         <hr />
         <mat-card-content>
+          <!--<button (click)="logout()"  class="button is-warn">Logout</button>-->
+          <div *ngIf="user$ | async as user" class="action">
+
+            <button mat-stroked-button color="primary"
+                    *ngIf="!user.uid"
+                    (click)="login()"
+                    [class.is-loading]="user.loading">
+
+            <span class="icon">
+              <i class="fa fa-google"></i>
+            </span>
+              <span>Use Google Account</span>
+            </button>
+
+            <!-- <button (click)="googleLogin()" *ngIf="!user.uid" class="button is-danger">Sign In with Google</button> -->
+            <button (click)="logout()"      *ngIf="user.uid"  class="button is-warn">Logout</button>
+          </div>
+        </mat-card-content>
+        <mat-card-content>
           <p>
             <input type="email" [(ngModel)]="email" placeholder="Email"/>
             <input type="password" [(ngModel)]="password" placeholder="Password" />
@@ -13,7 +32,7 @@
         </mat-card-content>
         <mat-card-actions class="action">
           <button mat-flat-button color="basic" class="cancel" (click)="onNoClick()">Cancel</button>
-          <button mat-stroked-button color="primary" class="signin" (click)="signIn()">Sign In</button>
+          <button mat-stroked-button color="primary" class="signin" (click)="signin()">Sign In</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

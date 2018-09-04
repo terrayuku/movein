@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Effect, Actions } from '@ngrx/effects';
+import {Effect, Actions, ofType} from '@ngrx/effects';
 
 import * as firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { defer } from 'rxjs/observable/defer';
 import '../utils/rxjs.operators';
 
@@ -16,14 +16,16 @@ import {UsersQuery} from './user.reducer';
 
 import * as userActions from './user.actions';
 import {Router} from '@angular/router';
+import {select} from '@ngrx/core';
+import {switchMap, map} from 'rxjs-compat/operator';
 type Action = userActions.All;
 
 @Injectable()
 export class UserEffects {
-  user$ = this.store.select(UsersQuery.getUser);
-  @Effect() getUser$: Observable<Action> = this.actions$.ofType(userActions.GET_USER)
-    .map((action: userActions.GetUser) => action.payload )
-    .switchMap(payload => this.afAuth.authState )
+  user$ = this.store.pipe(select(UsersQuery.getUser));
+  @Effect() getUser$: Observable<Action> = this.actions$.pipe(ofType(userActions.GET_USER),
+    map((action: userActions.GetUser) => action.payload ),
+    switchMap(payload => this.afAuth.authState ))
     .map( authData => {
       if (authData) {
         /// User logged in
@@ -38,12 +40,12 @@ export class UserEffects {
     .catch(err =>  Observable.of(new userActions.AuthError()) );
 
 
-  @Effect() login$: Observable<Action> = this.actions$.ofType(userActions.GOOGLE_LOGIN)
-    .map((action: userActions.GoogleLogin) => action.payload)
-    .switchMap(payload => {
+  @Effect() login$: Observable<Action> = this.actions$.pip(ofType(userActions.GOOGLE_LOGIN),
+    map((action: userActions.GoogleLogin) => action.payload),
+    switchMap(payload => {
       // console.log('Payload', payload);
       return Observable.fromPromise( this.googleLogin() );
-    })
+    }))
     .map( credential => {
       // successful login
       return new userActions.GetUser();
@@ -51,11 +53,11 @@ export class UserEffects {
     .catch(err => {
       return Observable.of(new userActions.AuthError({error: err.message}));
     });
-  @Effect() signin$: Observable<Action> = this.actions$.ofType(userActions.AUTHENTICATE_EMAIL_PASSWORD)
-    .map((action: userActions.AuthenticateEmailPassword) => action.payload)
-    .switchMap(payload => {
+  @Effect() signin$: Observable<Action> = this.actions$.pipe(ofType(userActions.AUTHENTICATE_EMAIL_PASSWORD),
+    map((action: userActions.AuthenticateEmailPassword) => action.payload),
+    switchMap(payload => {
       return Observable.fromPromise(this.signInWithEmailPassword(payload));
-    })
+    }))
     .map( credential => {
       return new userActions.GetUser();
     })
@@ -64,11 +66,11 @@ export class UserEffects {
     });
 
 
-  @Effect() logout$: Observable<Action> = this.actions$.ofType(userActions.LOGOUT)
-    .map((action: userActions.Logout) => action.payload )
-    .switchMap(payload => {
+  @Effect() logout$: Observable<Action> = this.actions$.pip(ofType(userActions.LOGOUT),
+    map((action: userActions.Logout) => action.payload ),
+    switchMap(payload => {
       return Observable.of( this.signOut() );
-    })
+    }))
     .map( authData => {
       return new userActions.NotAuthenticated();
     })
@@ -121,7 +123,6 @@ export class UserEffects {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.afAuth.auth.signInWithPopup(provider)
       .then(response => {
-        console.log('POPUP');
         this.router.navigate(['/dashboard', response.user.uid]);
       })
       .catch(error => {

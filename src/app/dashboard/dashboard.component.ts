@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../state/user/user.model';
-import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs';
 import {UserEffects} from '../state/user/user.effects';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import {User} from '../state/user/user.model';
 import {UserEffects} from '../state/user/user.effects';
 

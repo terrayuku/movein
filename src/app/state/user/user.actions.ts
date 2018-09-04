@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
-import { Router } from '@angular/router';
+import {NewUser, User} from './user.model';
+export const CREATE_USER = '[Auth] Create User';
 export const GET_USER = '[Auth] Get User';
 export const AUTHENTICATED = '[Auth] Authenticated';
 export const AUTHENTICATE_EMAIL_PASSWORD = '[Auth] Authenticated email password';
@@ -7,6 +8,11 @@ export const NOT_AUTHENTICATED = '[Auth] Not Authenticated';
 export const GOOGLE_LOGIN = '[Auth] Google login attempt';
 export const LOGOUT = '[Auth] Logout';
 export const AUTH_ERROR = '[Auth] Error';
+
+export class CreateUser implements Action {
+  readonly type = CREATE_USER;
+  constructor(public payload: any) {}
+}
 
 export class GetUser implements Action {
   readonly type = GET_USER;
@@ -45,7 +51,8 @@ readonly type = AUTH_ERROR;
 }
 
 export type All
-  = GetUser
+  = CreateUser
+  | GetUser
   | Authenticated
   | AuthenticateEmailPassword
   | NotAuthenticated

@@ -1,7 +1,7 @@
 import { AppState } from '../app.state';
 
 import * as userActions from './user.actions';
-import { User } from './user.model';
+import {NewUser, User} from './user.model';
 
 export type Action = userActions.All;
 
@@ -9,10 +9,20 @@ const defaultUser = new User(null, 'GUEST');
 
 export namespace UsersQuery {
   export const getUser = (state: AppState) => state.user;
+  export const getCreatedUser = (state: AppState) => state.newUser;
 }
-
+export function createdUserReducer(state: NewUser, action: Action) {
+  switch (action.type) {
+    case userActions.CREATE_USER:
+      return { ...state, ...action.payload, loading: true };
+    default:
+      return state;
+  }
+}
 export function userReducer(state: User = defaultUser, action: Action) {
   switch (action.type) {
+    // case userActions.CREATE_USER:
+    //   return { ...state, ...action.payload, loading: true };
 
     case userActions.GET_USER:
       return { ...state, loading: true };

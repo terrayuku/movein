@@ -2,6 +2,7 @@ import * as fromRouter from '@ngrx/router-store';
 import { Params } from '@angular/router';
 import { Talent } from './talent';
 import { User } from './user';
+import {NewUser} from './user/user.model';
 export interface RouterStateUrl {
   url: string;
   queryParams: Params;
@@ -14,5 +15,6 @@ export interface RouterStateUrl {
 export interface AppState {
   talent: Talent;
   user: User;
+  newUser: NewUser;
   router: fromRouter.RouterReducerState<RouterStateUrl>;
 }

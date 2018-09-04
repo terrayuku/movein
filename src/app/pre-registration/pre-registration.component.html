@@ -1,7 +1,7 @@
-<div class="rg-container">
-  <mat-grid-list cols="2">
-    <mat-grid-tile class="tile">
-      <mat-card class="register-container">
+<div>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-card>
         <mat-card-title class="card-title title">Register</mat-card-title>
         <mat-card-subtitle class="sub-title">Build a creative personal profile</mat-card-subtitle>
         <hr />
@@ -14,12 +14,9 @@
         </mat-card-content>
         <mat-card-actions class="action">
           <button mat-flat-button color="basic" class="cancel" routerLink="/">Cancel</button>
-          <button mat-stroked-button color="primary" class="signup" (click)="signUp()">Sign Up</button>
+          <button mat-stroked-button color="primary" class="signup" (click)="createduser()">Sign Up</button>
         </mat-card-actions>
       </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-
     </mat-grid-tile>
   </mat-grid-list>
 </div>

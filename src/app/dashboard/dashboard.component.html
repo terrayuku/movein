@@ -11,7 +11,7 @@
                  [fixedTopGap]="options.value.top"
                  [fixedBottomGap]="options.value.bottom">
       <mat-sidenav-content>
-        <button mat-button (click)="getProfile()">Profile</button>
+        <button mat-button (click)="getProfile(user.uid)">Profile</button>
         <button mat-button (click)="getUserSkills()">Skills & Passion</button>
         <button mat-button (click)="selectTalent()">Talents</button>
         <button mat-button>Industries</button>

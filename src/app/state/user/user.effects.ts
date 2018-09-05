@@ -127,6 +127,10 @@ export class UserEffects {
     this.store.dispatch(new userActions.AuthenticateEmailPassword({ email: email, password: password }));
     return this.user$;
   }
+  getUser(): any {
+    this.store.dispatch(new userActions.GetUser());
+    return this.user$;
+  }
 
   /**
    *

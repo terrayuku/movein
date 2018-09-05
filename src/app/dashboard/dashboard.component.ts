@@ -3,6 +3,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../state/user/user.model';
 import {Observable} from 'rxjs/Observable';
 import {UserEffects} from '../state/user/user.effects';
+import {Router} from '@angular/router';
+import {UpdateProfileComponent} from '../update-profile/update-profile.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +21,9 @@ export class DashboardComponent implements OnInit {
   user$: Observable<User> = this.userService.user$;
   constructor(
     fb: FormBuilder,
-    private userService: UserEffects
+    private userService: UserEffects,
+    private router: Router,
+    private dialog: MatDialog
   ) {
     this.options = fb.group({
       bottom: 0,
@@ -39,9 +44,14 @@ export class DashboardComponent implements OnInit {
   //   this.displayProfile = false;
   //   this.skills = this.user.getSkills();
   // }
-  // getProfile() {
+  // getProfile(uid) {
   //   this.displayProfile = true;
-  //   // this.router.navigate(['/update-profile', this.authUser.userUid]);
+  //   // this.dialogRef.open(UpdateProfileComponent);
+  //   const dialogRef = this.dialog.open(UpdateProfileComponent, {
+  //     width: '560px'
+  //   });
+  //   dialogRef.afterClosed();
+  //   // this.router.navigate(['/update-profile', uid]);
   // }
   // selectTalent() {
   //   this.selectTalents = true;

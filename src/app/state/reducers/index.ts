@@ -4,12 +4,14 @@ import { createFeatureSelector, ActionReducerMap } from '@ngrx/store';
 import { RouterStateUrl, AppState} from '../app.state';
 import {talentReducer} from '../talent/talent.reducer';
 import {createdUserReducer, userReducer} from '../user/user.reducer';
+import {profileReducer} from '../profile/profile.reducer';
 
 export const reducers: ActionReducerMap<AppState> = {
   router: fromRouter.routerReducer,
   talent: talentReducer,
   user: userReducer,
-  newUser: createdUserReducer
+  newUser: createdUserReducer,
+  profile: profileReducer
 };
 
 export const getRouterState = createFeatureSelector<fromRouter.RouterReducerState<RouterStateUrl>>('routerReducer');

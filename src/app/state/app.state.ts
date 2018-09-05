@@ -3,6 +3,7 @@ import { Params } from '@angular/router';
 import { Talent } from './talent';
 import { User } from './user';
 import {NewUser} from './user/user.model';
+import {Profile} from './profile/profile.model';
 export interface RouterStateUrl {
   url: string;
   queryParams: Params;
@@ -17,4 +18,5 @@ export interface AppState {
   user: User;
   newUser: NewUser;
   router: fromRouter.RouterReducerState<RouterStateUrl>;
+  profile: Profile;
 }

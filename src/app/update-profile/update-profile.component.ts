@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import {UserService} from '../user.service';
-// import * as firebase from 'firebase';
-// import AuthCredential = firebase.auth.AuthCredential;
+import {ProfileEffects} from '../state/profile/profile.effects';
 
 @Component({
   selector: 'app-update-profile',
@@ -10,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  // email: string;
-  // firstName: string;
-  // lastName: string;
-  // errorMessage: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  errorMessage: string;
   //
   // skill_1: string;
   // skill_2: string;
@@ -21,30 +19,31 @@ export class UpdateProfileComponent implements OnInit {
   // skill_4: string;
   // next: boolean;
   // skills: Array<any>;
-  // constructor(public user: UserService) {
-  //   this.user.getUser().subscribe(u => {
-  //     this.email = u.email;
-  //   });
-  // }
+  constructor(public profileService: ProfileEffects) {
+    // this.user.getUser().subscribe(u => {
+    //   this.email = u.email;
+    // });
+  }
   //
   ngOnInit() {
     // this.next = false;
   }
-  //
-  // userProfile() {
-  //   this.user.getUser().subscribe((u) => {
-  //     console.log('User U', u);
-  //     if (this.lastName && this.firstName) {
-  //       u.updateProfile({
-  //         displayName: this.firstName + '  ' + this.lastName,
-  //         photoURL: ''
-  //       });
-  //       this.next = true;
-  //     } else {
-  //       this.errorMessage = 'Please complete the form';
-  //     }
-  //   });
-  // }
+
+  userProfile() {
+    // this.user.getUser().subscribe((u) => {
+    //   console.log('User U', u);
+      if (this.lastName && this.firstName) {
+        // u.updateProfile({
+        //   displayName: this.firstName + '  ' + this.lastName,
+        //   photoURL: ''
+        // });
+        // this.next = true;
+        this.profileService.updateProfile({displayName: this.firstName + ' ' + this.lastName, photoURL: ''});
+      } else {
+        this.errorMessage = 'Please complete the form';
+      }
+    // });
+  }
   //
   // addSkills() {
   //   this.skills = [this.skill_1, this.skill_2, this.skill_3, this.skill_4];

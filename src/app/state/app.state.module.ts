@@ -19,6 +19,7 @@ import {UserEffects} from './user';
 import {TalentEffects} from './talent';
 
 import { environment } from '../../environments/environment';
+import {ProfileEffects} from './profile/profile.effects';
 export const firebase = environment.firebase;
 
 @NgModule({
@@ -29,7 +30,8 @@ export const firebase = environment.firebase;
 
     EffectsModule.forRoot([
       UserEffects,
-      TalentEffects
+      TalentEffects,
+      ProfileEffects
     ]),
 
     // Signature matches AppState interface

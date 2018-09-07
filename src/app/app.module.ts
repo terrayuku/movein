@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule,  RouterStateSerializer } from '@ngrx/router-store';
@@ -17,25 +17,15 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 
 import { reducers, CustomSerializer } from './state/reducers';
 
-import { environment } from '../environments/environment';
-import {AuthService} from './auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-  MatAutocompleteModule,
-  MatBadgeModule,
-  MatBottomSheetModule,
   MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatDividerModule,
-  MatExpansionModule,
   MatGridListModule,
 } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import {AppStateModule} from './state/app.state.module';
 
@@ -62,15 +52,15 @@ import {AppStateModule} from './state/app.state.module';
     MatButtonModule,
     MatDialogModule,
     MatGridListModule,
+    MatToolbarModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
     StoreModule.forRoot(reducers),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [{provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

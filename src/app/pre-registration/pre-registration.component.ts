@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth.service';
 import {UserEffects} from '../state/user/user.effects';
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
 import {NewUser} from '../state/user/user.model';
 import {Observable} from 'rxjs/Observable';
 @Component({

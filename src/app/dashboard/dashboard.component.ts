@@ -3,9 +3,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../state/user/user.model';
 import {Observable} from 'rxjs/Observable';
 import {UserEffects} from '../state/user/user.effects';
-import {Router} from '@angular/router';
-import {UpdateProfileComponent} from '../update-profile/update-profile.component';
-import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,16 +11,13 @@ import {MatDialog} from '@angular/material';
 })
 export class DashboardComponent implements OnInit {
   options: FormGroup;
-  logedInUser: string;
   skills: any;
   displayProfile: boolean;
   selectTalents: boolean;
   user$: Observable<User> = this.userService.user$;
   constructor(
     fb: FormBuilder,
-    private userService: UserEffects,
-    private router: Router,
-    private dialog: MatDialog
+    private userService: UserEffects
   ) {
     this.options = fb.group({
       bottom: 0,
@@ -33,7 +27,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.logedInUser = this.user$.;
     this.displayProfile = true;
     this.selectTalents = false;
   }

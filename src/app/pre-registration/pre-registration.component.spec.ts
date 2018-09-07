@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {inject, NO_ERRORS_SCHEMA} from '@angular/core';
+import { NO_ERRORS_SCHEMA} from '@angular/core';
 
 import { PreRegistrationComponent } from './pre-registration.component';
-import {AuthService} from '../auth.service';
 import { of } from 'rxjs';
-import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from '@angular/router';
+import {UserEffects} from '../state/user/user.effects';
+import {MatDialogRef} from '@angular/material';
 
 
 export class MockUser {
@@ -13,7 +13,6 @@ export class MockUser {
   isAnonymous: boolean;
   uid: string;
 }
-const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
 describe('PreRegistrationComponent', () => {
   const authState: MockUser =  {
@@ -34,32 +33,24 @@ describe('PreRegistrationComponent', () => {
   };
   let component: PreRegistrationComponent;
   let fixture: ComponentFixture<PreRegistrationComponent>;
-  let authService: AuthService;
-
+  class MockUserService {
+    public setContext() {}
+  }
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ PreRegistrationComponent ],
       providers: [
-        { provide: AuthService,     useClass: AuthService },
-        { provide: AngularFireAuth, userValue: AngularFireAuthStub },
-        { provide: Router,          userValue: routerSpy }
+        { provide: UserEffects, useClass: MockUserService },
+        { provide: MatDialogRef, useValue: {} }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     });
-    authService = new AuthService(AngularFireAuthStub, routerSpy);
     fixture = TestBed.createComponent(PreRegistrationComponent);
     component = fixture.componentInstance;
-    // authService = fixture.debugElement.injector.get(AuthService);
     fixture.detectChanges();
   }));
-  it('should define service',  () => {
-    // authService = new AuthService(AngularFireAuthStub, routerSpy);
-    // spyOn(authService, 'auth').and.returnValue(Promise.resolve(AngularFireAuthStub));
-    expect(authService).toBeDefined();
-  });
 
   it('should create', () => {
-    // authService = new AuthService(AngularFireAuthStub, routerSpy);
     expect(component).toBeTruthy();
   });
 });

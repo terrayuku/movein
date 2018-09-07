@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   signin: string;
 
   constructor(
-    private router: Router,
     private dialog: MatDialog
   ) {
     this.register = 'REGISTER';

@@ -26,8 +26,9 @@
 }
 
 .logout {
-  left: 110em;
+  left: 90em;
   padding: 12px;
+  background: inherit;
 }
 
 
@@ -53,4 +54,8 @@ ul {
 }
 li {
   color: white;
+}
+
+mat-toolbar {
+  color: inherit;
 }

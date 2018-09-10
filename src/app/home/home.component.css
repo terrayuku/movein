@@ -18,7 +18,12 @@
   transition: all 0.2s;
   cursor: pointer;
   margin: 10px;
+}
 
+@media (max-width: 599px) {
+  .hide-title {
+    display: none !important;
+  }
 }
 
 /* Add an active class to highlight the current page */
@@ -35,5 +40,14 @@
 .content {
   padding-left: 16em;
   padding-right: 16em;
+}
+
+mat-toolbar {
+  overflow: hidden;
+  background-image: linear-gradient(-62deg,#283E8C 0,#232240 86%);
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  display: inline-table;
 }
 

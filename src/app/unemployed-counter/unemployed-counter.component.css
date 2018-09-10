@@ -2,8 +2,22 @@
   font-size: 2em;
   margin-top: 0em;
   text-align: center;
-  padding-left: 16em;
-  padding-right: 16em;
+}
+
+@media (max-width: 599px) {
+  .unemployed-count {
+    font-size: 1em !important;
+    padding-left: 3em !important;
+    padding-right: 3em !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .unemployed-count {
+    font-size: 1.5em;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
 }
 
 .unemployed-count .unemployed-count-content {
@@ -12,7 +26,7 @@
 
 h4 {
   display: block;
-  margin: 0 0 1rem;
+  /*margin: 0 0 1rem;*/
   text-rendering: optimizeLegibility;
   padding: 0;
 }

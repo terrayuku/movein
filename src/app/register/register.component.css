@@ -1,5 +1,5 @@
 .register {
-  display: inline-block;
+  /*display: inline-block;*/
   border-radius: 4px;
   background-color: #4CAF50;
   border: none;
@@ -39,7 +39,7 @@
 }
 
 .signin {
-  display: inline-block;
+  /*display: inline-block;*/
   border-radius: 4px;
   /*background-color: #4CAF50;*/
   /*border: none;*/

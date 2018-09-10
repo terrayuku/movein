@@ -2,6 +2,17 @@
   color: black;
   padding-left: 16em;
   padding-right: 16em;
+  width: auto;
+}
+
+@media (max-width: 899px) {
+  .content {
+    padding: 2em;
+  }
+
+}
+div {
+  padding-top: 2em;
 }
 
 section {

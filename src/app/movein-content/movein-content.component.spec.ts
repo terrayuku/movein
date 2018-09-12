@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MoveinContentComponent } from './movein-content.component';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {MatCardModule} from '@angular/material';
 
 describe('MoveinContentComponent', () => {
   let component: MoveinContentComponent;
@@ -8,7 +10,9 @@ describe('MoveinContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MoveinContentComponent ]
+      declarations: [ MoveinContentComponent ],
+      providers: [{ provide: MatCardModule, useValue: {} }],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

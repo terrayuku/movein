@@ -28,6 +28,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import {AppStateModule} from './state/app.state.module';
+import { PersonalSuccessComponent } from './personal-success/personal-success.component';
+import { QuestionAndAnswersComponent } from './question-and-answers/question-and-answers.component';
+import { MoveinContentComponent } from './movein-content/movein-content.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import {AppStateModule} from './state/app.state.module';
     SignupComponent,
     UpdateProfileComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    PersonalSuccessComponent,
+    QuestionAndAnswersComponent,
+    MoveinContentComponent
   ],
   imports: [
     AppStateModule,

@@ -1,38 +1,55 @@
 <div *ngIf="user$ | async as user">
-<ng-container>
-  <mat-toolbar class="example-header">{{ user.displayName }}</mat-toolbar>
-  <mat-toolbar class="example-header logout">
-    <button mat-button (click)="logout()">Logout</button>
+<!--<ng-container>-->
+  <mat-toolbar class="example-header">
+    <div>
+      <span>{{ user.displayName }}</span>
+      <span flex></span>
+      <button mat-button class="logout" (click)="logout()">Logout</button>
+    </div>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
-                 [fixedInViewport]="options.value.fixed"
-                 [fixedTopGap]="options.value.top"
-                 [fixedBottomGap]="options.value.bottom">
-      <mat-sidenav-content>
-        <button mat-button (click)="getProfile(user.uid)">Profile</button>
-        <button mat-button (click)="getUserSkills()">Skills & Passion</button>
-        <button mat-button (click)="selectTalent()">Talents</button>
-        <button mat-button>Industries</button>
-      </mat-sidenav-content>
-    </mat-sidenav>
-
-    <mat-sidenav-content [formGroup]="options" class="content" *ngIf="!displayProfile">
-      <ul>
-        <li *ngFor="let skill of skills">
-          {{ skill }}
-        </li>
-      </ul>
+  <mat-sidenav class="example-sidenav">
+    <mat-sidenav-content >
+      <button mat-button (click)="getProfile(user.uid)">Profile</button>
+      <button mat-button (click)="getUserSkills()">Skills & Passion</button>
+      <button mat-button (click)="selectTalent()">Talents</button>
+      <button mat-button>Industries</button>
     </mat-sidenav-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
     <p *ngIf="displayProfile">
       <app-update-profile *ngIf="displayProfile"></app-update-profile>
     </p>
-    <p *ngIf="selectTalents">
-      <app-talent></app-talent>
-    </p>
-  </mat-sidenav-container>
+  </mat-sidenav-content>
 
-  <mat-toolbar class="example-footer">Footer</mat-toolbar>
-</ng-container>
+  <!--<mat-sidenav-container class="example-container">-->
+    <!--<mat-sidenav #sidenav mode="side" opened class="example-sidenav"-->
+                 <!--[fixedInViewport]="options.value.fixed"-->
+                 <!--[fixedTopGap]="options.value.top"-->
+                 <!--[fixedBottomGap]="options.value.bottom">-->
+      <!--<mat-sidenav-content>-->
+        <!--<button mat-button (click)="getProfile(user.uid)">Profile</button>-->
+        <!--<button mat-button (click)="getUserSkills()">Skills & Passion</button>-->
+        <!--<button mat-button (click)="selectTalent()">Talents</button>-->
+        <!--<button mat-button>Industries</button>-->
+      <!--</mat-sidenav-content>-->
+    <!--</mat-sidenav>-->
+
+    <!--<mat-sidenav-content [formGroup]="options" class="content" *ngIf="!displayProfile">-->
+      <!--<ul>-->
+        <!--<li *ngFor="let skill of skills">-->
+          <!--{{ skill }}-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</mat-sidenav-content>-->
+    <!--<p *ngIf="displayProfile">-->
+      <!--<app-update-profile *ngIf="displayProfile"></app-update-profile>-->
+    <!--</p>-->
+    <!--<p *ngIf="selectTalents">-->
+      <!--<app-talent></app-talent>-->
+    <!--</p>-->
+  <!--</mat-sidenav-container>-->
+
+  <!--<mat-toolbar class="example-footer">Footer</mat-toolbar>-->
+<!--</ng-container>-->
 </div>

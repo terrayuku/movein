@@ -26,10 +26,11 @@ import {
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import {AppStateModule} from './state/app.state.module';
-// import { PersonalSuccessComponent } from './personal-success/personal-success.component';
-// import { QuestionAndAnswersComponent } from './question-and-answers/question-and-answers.component';
+import { PersonalSuccessComponent } from './personal-success/personal-success.component';
+import { QuestionAndAnswersComponent } from './question-and-answers/question-and-answers.component';
 import { MoveinContentComponent } from './movein-content/movein-content.component';
 
 
@@ -45,8 +46,8 @@ import { MoveinContentComponent } from './movein-content/movein-content.componen
     UpdateProfileComponent,
     DashboardComponent,
     HomeComponent,
-    // PersonalSuccessComponent,
-    // QuestionAndAnswersComponent,
+    PersonalSuccessComponent,
+    QuestionAndAnswersComponent,
     MoveinContentComponent
   ],
   imports: [
@@ -54,6 +55,7 @@ import { MoveinContentComponent } from './movein-content/movein-content.componen
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatMenuModule,
     MatCardModule,
     MatButtonModule,
     MatDialogModule,

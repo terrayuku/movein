@@ -11,15 +11,20 @@
   <mat-sidenav class="example-sidenav">
     <mat-sidenav-content >
       <button mat-button (click)="getProfile(user.uid)">Profile</button>
-      <button mat-button (click)="getUserSkills()">Skills & Passion</button>
+      <button mat-button [matMenuTriggerFor]="menu">Questions</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Personal You</button>
+        <button mat-menu-item>Professional You</button>
+      </mat-menu>
       <button mat-button (click)="selectTalent()">Talents</button>
-      <button mat-button>Industries</button>
     </mat-sidenav-content>
   </mat-sidenav>
   <mat-sidenav-content>
     <p *ngIf="displayProfile">
       <app-update-profile *ngIf="displayProfile"></app-update-profile>
     </p>
+    <!--<app-question-and-answers question="Does your profession complement what matters to you and brings meaningful life to you?"></app-question-and-answers>-->
+
   </mat-sidenav-content>
 
   <!--<mat-sidenav-container class="example-container">-->

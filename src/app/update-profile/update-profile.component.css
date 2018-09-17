@@ -1,6 +1,6 @@
 .skills {
   left: 25px;
-  width: 23%;
+  width: auto;
   margin-top: 0px;
   padding-top: 16px !important;
 }
@@ -27,7 +27,7 @@ textarea {
 }
 
 .mat-grid-tile {
-  left: 0px;
+  /*left: 3em !important;*/
   width: 100% !important;
   margin-top: 62px !important;
   padding-top: 24em !important;
@@ -48,6 +48,7 @@ textarea {
     margin-right: 0 !important;
   }
   mat-grid-tile {
+    left: 0 !important;
     margin-top: 50px !important;
   }
 }
@@ -62,6 +63,9 @@ textarea {
 @media screen and (min-width: 600px) {
   .mat-card>:first-child {
     margin-left: 17px;
+  }
+  .mat-grid-tile {
+    left: 3em !important;
   }
 }
 
